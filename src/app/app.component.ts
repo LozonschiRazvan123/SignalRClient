@@ -20,7 +20,7 @@ export class AppComponent {
       .start()
       .then(() => console.log('Connection started.......!'))
       .catch(err => console.log('Error while connect with server'));
-    this.hubConnectionBuilder.on('SendOffersToUser', (result: any) => {
+    this.hubConnectionBuilder.on('ReceiveOffer', (result: any) => {
       this.offers.push(result);
     });
 }
