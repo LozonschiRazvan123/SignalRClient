@@ -13,14 +13,14 @@ export class AppComponent {
   }
   ngOnInit(): void {
     this.hubConnectionBuilder = new HubConnectionBuilder()
-      .withUrl('https://localhost:7016/offers')
+      .withUrl('https://localhost:7016/productoffers')
       .configureLogging(LogLevel.Information)
       .build();
     this.hubConnectionBuilder
       .start()
       .then(() => console.log('Connection started.......!'))
       .catch(err => console.log('Error while connect with server'));
-    this.hubConnectionBuilder.on('ReceiveOffer', (result: any) => {
+    this.hubConnectionBuilder.on('ReceiveMessage', (result: any) => {
       this.offers.push(result);
     });
 }
